@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>项目列表 - 毕设源码大全 | Vue+SpringBoot毕业设计</title>
-    <meta name="description" content="所有毕设项目列表，基于Vue+SpringBoot前后端分离架构，持续更新中。">
+    <title>30套毕设项目列表 - 毕设源码大全 | Vue+SpringBoot</title>
+    <meta name="description" content="30套完整计算机毕设项目，基于Vue+SpringBoot前后端分离架构，附截图、部署教程、数据库脚本。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         .project-card { transition: all 0.3s ease; }
-        .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+        .project-card img { transition: transform 0.3s ease; }
+        .project-card:hover img { transform: scale(1.05); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- 导航栏 -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html" class="text-xl font-bold text-blue-600">
@@ -40,205 +41,42 @@
         </div>
     </nav>
 
-    <!-- 页面标题 -->
     <section class="bg-white py-10 border-b">
         <div class="max-w-6xl mx-auto px-4">
-            <h1 class="text-3xl font-bold mb-2">毕设项目列表</h1>
-            <p class="text-gray-600">持续更新中，每周新增1-2个项目...</p>
+            <h1 class="text-3xl font-bold mb-2">30套毕设项目大全</h1>
+            <p class="text-gray-600">全部基于 Vue + SpringBoot 前后端分离架构，附完整截图和部署教程</p>
         </div>
     </section>
 
-    <!-- 筛选 -->
     <section class="py-6 bg-white border-b">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex flex-wrap gap-2">
-                <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm" data-filter="all">全部</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-filter="free">免费源码</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-filter="paid">加微信获取</button>
+                <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm" data-cat="all">全部 (30)</button>
+                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="ecommerce">电商交易</button>
+                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="education">教育学习</button>
+                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="medical">医疗健康</button>
+                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="community">社区生活</button>
+                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="transport">出行停车</button>
+                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="enterprise">企业管理</button>
             </div>
         </div>
     </section>
 
-    <!-- 项目列表 -->
     <section class="py-12">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid">
-
-                <!-- 免费项目 01 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="free">
-                    <div class="h-40 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                        <i class="fa fa-file-text-o text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded">免费源码</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">在线考试系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">题库管理、在线考试、自动判分、成绩统计</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3 + MySQL</span>
-                    </div>
-                </div>
-
-                <!-- 免费项目 02 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="free">
-                    <div class="h-40 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                        <i class="fa fa-book text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded">免费源码</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">图书管理系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">图书借阅、读者管理、罚款管理、统计报表</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3 + MySQL</span>
-                    </div>
-                </div>
-
-                <!-- 免费项目 03 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="free">
-                    <div class="h-40 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
-                        <i class="fa fa-shopping-cart text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded">免费源码</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">校园二手交易平台</h3>
-                        <p class="text-gray-600 text-sm mb-3">商品发布、在线聊天、订单管理、审核机制</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3 + Redis</span>
-                    </div>
-                </div>
-
-                <!-- 付费项目 04 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="paid">
-                    <div class="h-40 bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
-                        <i class="fa fa-paw text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">加微信获取</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">宠物领养管理系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">宠物展示、领养申请、审核管理、养宠知识</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                    </div>
-                </div>
-
-                <!-- 付费项目 05 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="paid">
-                    <div class="h-40 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-                        <i class="fa fa-hospital-o text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">加微信获取</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">医院挂号管理系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">科室管理、医生排班、在线挂号、病历管理</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                    </div>
-                </div>
-
-                <!-- 付费项目 06 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="paid">
-                    <div class="h-40 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
-                        <i class="fa fa-film text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">加微信获取</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">电影票务管理系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">影片管理、选座购票、订单管理、评价系统</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                    </div>
-                </div>
-
-                <!-- 付费项目 07 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="paid">
-                    <div class="h-40 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
-                        <i class="fa fa-building text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">加微信获取</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">人事管理系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">员工管理、部门职位、薪资管理、考勤统计</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                    </div>
-                </div>
-
-                <!-- 付费项目 08 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="paid">
-                    <div class="h-40 bg-gradient-to-br from-rose-400 to-rose-600 flex items-center justify-center">
-                        <i class="fa fa-cutlery text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">加微信获取</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">食堂点餐系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">菜单管理、在线点餐、支付、配送管理</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                    </div>
-                </div>
-
-                <!-- 付费项目 09 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="paid">
-                    <div class="h-40 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
-                        <i class="fa fa-home text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">加微信获取</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">宿舍管理系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">宿舍分配、住宿登记、报修管理、查寝记录</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                    </div>
-                </div>
-
-                <!-- 付费项目 10 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-type="paid">
-                    <div class="h-40 bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
-                        <i class="fa fa-newspaper-o text-5xl text-white opacity-80"></i>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded">加微信获取</span>
-                            <span class="text-yellow-500 text-xs">⭐⭐</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">新闻发布系统</h3>
-                        <p class="text-gray-600 text-sm mb-3">新闻管理、分类标签、评论功能、搜索</p>
-                        <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                    </div>
-                </div>
-
-            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid"></div>
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="py-10 bg-blue-50">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <p class="text-lg text-gray-700 mb-4">还有更多项目持续更新中...</p>
+            <p class="text-lg text-gray-700 mb-4">所有项目都有完整源码、数据库脚本、部署教程</p>
             <a href="about.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
                 <i class="fa fa-wechat mr-2"></i>加微信获取全部源码
             </a>
         </div>
     </section>
 
-    <!-- 页脚 -->
     <footer class="bg-gray-800 text-gray-400 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center text-sm">
             <p class="mb-2">© 2026 毕设源码大全 | Vue + SpringBoot 毕业设计项目</p>
@@ -246,10 +84,67 @@
     </footer>
 
     <script>
-        // 筛选功能
-        const buttons = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.project-card');
+        const projects = [
+            { id: '01', name: '多商户二手交易平台', cat: 'ecommerce', diff: '⭐⭐⭐⭐', desc: '多商户入驻、商品审核、担保交易、在线聊天', img: 'assets/screenshots/多商户二手交易平台/买家/下单担保支付.png' },
+            { id: '02', name: '社区团购系统', cat: 'ecommerce', diff: '⭐⭐⭐', desc: '团长管理、佣金收益、自提配送、秒杀拼团', img: 'assets/screenshots/社区团购系统/团长/佣金收益.png' },
+            { id: '03', name: '生鲜配送商城', cat: 'ecommerce', diff: '⭐⭐⭐⭐', desc: '商品库存管理、冷链配送、多规格商品', img: 'assets/screenshots/生鲜配送商城/商家/商品与库存管理.png' },
+            { id: '10', name: '多门店连锁点餐系统', cat: 'ecommerce', diff: '⭐⭐⭐', desc: '连锁门店管理、总部经营数据汇总、多店统一', img: 'assets/screenshots/多门店连锁点餐系统/总部/经营数据汇总.png' },
+            { id: '11', name: '食堂智慧结算', cat: 'ecommerce', diff: '⭐⭐', desc: '扫码刷卡消费、菜单管理、消费统计', img: 'assets/screenshots/食堂智慧结算/师生/扫码刷卡消费.png' },
+            { id: '04', name: '在线考试系统', cat: 'education', diff: '⭐⭐⭐', desc: '题库管理、智能组卷、在线答题、防切屏、错题本', img: 'assets/screenshots/在线考试系统/学生/倒计时与防切屏.png' },
+            { id: '05', name: '智慧校园选课系统', cat: 'education', diff: '⭐⭐⭐', desc: '课程选课、候补自动递补、课表生成、学分统计', img: 'assets/screenshots/智慧校园选课系统/学生/候补自动递补.png' },
+            { id: '06', name: '职业技能培训平台', cat: 'education', diff: '⭐⭐⭐', desc: '课程学习、作业提交、学员进度、考试认证', img: 'assets/screenshots/职业技能培训平台/学员/作业提交.png' },
+            { id: '18', name: '图书馆智慧管理系统', cat: 'education', diff: '⭐⭐', desc: '图书借阅、读者管理、统计报表、智能检索', img: 'assets/screenshots/图书馆智慧管理系统/管理员/统计报表.png' },
+            { id: '07', name: '智慧医院预约挂号', cat: 'medical', diff: '⭐⭐⭐', desc: '科室管理、医生排班、在线挂号、病历管理', img: 'assets/screenshots/智慧医院预约挂号/医生/排班管理.png' },
+            { id: '08', name: '慢病随访管理', cat: 'medical', diff: '⭐⭐', desc: '慢病管理、随访计划、异常预警、健康档案', img: 'assets/screenshots/慢病随访管理/医生护士/异常预警处理.png' },
+            { id: '09', name: '校园健康体检管理', cat: 'medical', diff: '⭐⭐', desc: '体检套餐、体检报告、异常统计、健康档案', img: 'assets/screenshots/校园健康体检管理/学生/套餐选择.png' },
+            { id: '12', name: '健身房会员管理', cat: 'medical', diff: '⭐⭐⭐', desc: '会员管理、私教课程、体测记录、预约签到', img: 'assets/screenshots/健身房会员管理/会员/体测记录.png' },
+            { id: '13', name: '智慧物业管理系统', cat: 'community', diff: '⭐⭐⭐', desc: '业主报修、物业费缴纳、公告通知、投诉建议', img: 'assets/screenshots/智慧物业管理系统/业主/在线报修.png' },
+            { id: '14', name: '校园失物招领平台', cat: 'community', diff: '⭐⭐', desc: '失物发布、招领认领、消息通知、信用评价', img: 'assets/screenshots/校园失物招领平台/师生/发布寻物失物.png' },
+            { id: '15', name: '社区活动管理平台', cat: 'community', diff: '⭐⭐', desc: '活动发布、报名签到、相册分享、积分管理', img: 'assets/screenshots/社区活动管理平台/居民/上传相册.png' },
+            { id: '20', name: '校园跑腿代取平台', cat: 'community', diff: '⭐⭐⭐', desc: '发布跑腿任务、接单配送、在线支付、评价体系', img: 'assets/screenshots/校园跑腿代取平台/下单用户/发布跑腿任务.png' },
+            { id: '22', name: '校园社团管理系统', cat: 'community', diff: '⭐⭐', desc: '社团招新、活动管理、成员管理、数据统计', img: 'assets/screenshots/校园社团管理系统/团委/数据统计.png' },
+            { id: '23', name: '短视频分享社区', cat: 'community', diff: '⭐⭐⭐', desc: '短视频发布、点赞评论、创作者数据看板、关注粉丝', img: 'assets/screenshots/短视频分享社区/创作者/数据看板.png' },
+            { id: '17', name: '城市共享车位系统', cat: 'transport', diff: '⭐⭐⭐', desc: '车位分享、预约停车、共享收益、导航寻车', img: 'assets/screenshots/城市共享车位系统/管理员/数据统计.png' },
+            { id: '28', name: '校园共享单车系统', cat: 'transport', diff: '⭐⭐⭐', desc: '扫码用车、信用积分、骑行统计、预约还车', img: 'assets/screenshots/校园共享单车系统/学生/信用积分.png' },
+            { id: '29', name: '拼车出行系统', cat: 'transport', diff: '⭐⭐', desc: '发布行程、搜索拼车、在线沟通、费用分摊', img: 'assets/screenshots/拼车出行系统/乘客/搜索行程.png' },
+            { id: '30', name: '智慧停车场系统', cat: 'transport', diff: '⭐⭐', desc: '实时监控、车位引导、自动收费、出入场管理', img: 'assets/screenshots/智慧停车场系统/管理员/实时监控.png' },
+            { id: '16', name: '政务预约办事系统', cat: 'enterprise', diff: '⭐⭐⭐', desc: '事项查询、在线预约、进度查询、评价反馈', img: 'assets/screenshots/政务预约办事系统/市民/事项查询.png' },
+            { id: '19', name: '快递驿站管理系统', cat: 'enterprise', diff: '⭐⭐', desc: '快递代收、取件通知、签收确认、库存统计', img: 'assets/screenshots/快递驿站管理系统/用户/代收确认.png' },
+            { id: '21', name: '供应链采购系统', cat: 'enterprise', diff: '⭐⭐⭐⭐', desc: '供应商管理、采购订单、入库出库、对账结算', img: 'assets/screenshots/供应链采购系统/login.png' },
+            { id: '24', name: '桌游剧本杀预约系统', cat: 'enterprise', diff: '⭐⭐', desc: '场次管理、预约订座、店员管理、消费统计', img: 'assets/screenshots/桌游剧本杀预约系统/店家/场次管理.png' },
+            { id: '25', name: '小微企业进销存系统', cat: 'enterprise', diff: '⭐⭐⭐', desc: '商品管理、采购销售、库存预警、财务报表', img: 'assets/screenshots/小微企业进销存系统/员工/商品管理.png' },
+            { id: '26', name: '企业绩效考核系统', cat: 'enterprise', diff: '⭐⭐⭐', desc: 'KPI设置、员工打分、汇总报表、绩效排名', img: 'assets/screenshots/企业绩效考核系统/HR/汇总报表.png' },
+            { id: '27', name: '固定资产管理系统', cat: 'enterprise', diff: '⭐⭐', desc: '资产登记、借用归还、维修保养、折旧统计', img: 'assets/screenshots/固定资产管理系统/员工/借用申请.png' },
+        ];
 
+        function renderProjects(cat = 'all') {
+            const grid = document.getElementById('projectGrid');
+            const list = cat === 'all' ? projects : projects.filter(p => p.cat === cat);
+            grid.innerHTML = list.map(p => `
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-id="${p.id}">
+                    <div class="h-44 overflow-hidden bg-gray-100">
+                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover" loading="lazy"
+                             onerror="this.parentElement.innerHTML='<div class=\\'h-44 flex items-center justify-center bg-gray-200\\'><i class=\\'fa fa-image text-4xl text-gray-400\\'></i></div>'">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded font-mono">${p.id}</span>
+                            <span class="text-yellow-500 text-xs">${p.diff}</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">${p.name}</h3>
+                        <p class="text-gray-600 text-sm mb-3">${p.desc}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
+                            <a href="about.html" class="text-blue-600 text-sm font-medium hover:underline">获取源码 →</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        renderProjects();
+
+        const buttons = document.querySelectorAll('.filter-btn');
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
                 buttons.forEach(b => {
@@ -258,18 +153,9 @@
                 });
                 btn.classList.remove('bg-gray-100', 'text-gray-700');
                 btn.classList.add('bg-blue-600', 'text-white');
-
-                const filter = btn.dataset.filter;
-                cards.forEach(card => {
-                    if (filter === 'all' || card.dataset.type === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+                renderProjects(btn.dataset.cat);
             });
         });
     </script>
-
 </body>
 </html>
