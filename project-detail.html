@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目详情 - 毕设源码大全</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold text-blue-600">
+                <i class="fa fa-graduation-cap mr-2"></i>毕设源码大全
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">首页</a>
+                <a href="projects.html" class="text-blue-600 font-medium">项目列表</a>
+                <a href="topics.html" class="text-gray-600 hover:text-blue-600">选题大全</a>
+                <a href="templates.html" class="text-gray-600 hover:text-blue-600">免费模板</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-600">关于我</a>
+            </div>
+            <button class="md:hidden text-gray-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-2 space-y-2">
+            <a href="index.html" class="block text-gray-600 py-1">首页</a>
+            <a href="projects.html" class="block text-blue-600 font-medium py-1">项目列表</a>
+            <a href="topics.html" class="block text-gray-600 py-1">选题大全</a>
+            <a href="templates.html" class="block text-gray-600 py-1">免费模板</a>
+            <a href="about.html" class="block text-gray-600 py-1">关于我</a>
+        </div>
+    </nav>
+
+    <!-- 项目详情 -->
+    <section class="py-10">
+        <div class="max-w-4xl mx-auto px-4">
+
+            <!-- 返回按钮 -->
+            <a href="projects.html" class="text-blue-600 hover:underline mb-6 inline-block">
+                <i class="fa fa-arrow-left mr-2"></i>返回项目列表
+            </a>
+
+            <!-- 项目卡片 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                <div id="projectBanner" class="h-56 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <i id="projectIcon" class="fa fa-file-text-o text-7xl text-white opacity-80"></i>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span id="freeTag" class="bg-green-100 text-green-700 text-sm px-3 py-1 rounded">免费源码</span>
+                        <span id="difficulty" class="text-yellow-500">⭐⭐⭐</span>
+                    </div>
+                    <h1 id="projectTitle" class="text-3xl font-bold mb-3">项目名称</h1>
+                    <p id="projectDesc" class="text-gray-600 text-lg mb-6">项目描述</p>
+
+                    <!-- 技术栈 -->
+                    <div class="mb-6">
+                        <h3 class="font-bold mb-3">技术栈</h3>
+                        <div id="techStack" class="flex flex-wrap gap-2">
+                            <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">SpringBoot</span>
+                            <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">Vue3</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 功能列表 -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                <h2 class="text-xl font-bold mb-4">✨ 功能列表</h2>
+                <div id="featureList" class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>功能模块1</span>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                        <span>功能模块2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 部署教程 -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                <h2 class="text-xl font-bold mb-4">🚀 部署教程</h2>
+                <div class="space-y-4 text-gray-700">
+                    <div>
+                        <h3 class="font-bold mb-2">1. 环境要求</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>JDK 1.8+</li>
+                            <li>Node.js 16+</li>
+                            <li>MySQL 8.0</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2">2. 启动步骤</h3>
+                        <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                            <li>导入数据库脚本</li>
+                            <li>启动后端服务</li>
+                            <li>启动前端项目</li>
+                            <li>浏览器访问</li>
+                        </ol>
+                    </div>
+                    <p class="text-sm text-gray-500">详细教程请查看项目中的 README.md</p>
+                </div>
+            </div>
+
+            <!-- 获取源码 CTA -->
+            <div id="downloadSection" class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-md p-8 text-white text-center">
+                <h2 class="text-2xl font-bold mb-3">📥 获取完整源码</h2>
+                <p class="text-blue-100 mb-6">加微信免费获取，附详细部署教程和论文参考</p>
+                <a href="about.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition">
+                    <i class="fa fa-wechat mr-2"></i>加微信获取源码
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm">
+            <p class="mb-2">© 2026 毕设源码大全 | Vue + SpringBoot 毕业设计项目</p>
+        </div>
+    </footer>
+
+    <script>
+        // 项目数据
+        const projects = {
+            '01': {
+                title: '在线考试系统',
+                desc: '支持题库管理、在线考试、自动判分、成绩统计，适合教育类毕设选题',
+                icon: 'fa-file-text-o',
+                gradient: 'from-blue-400 to-blue-600',
+                free: true,
+                difficulty: '⭐⭐⭐',
+                features: [
+                    '用户管理（学生/教师/管理员）',
+                    '题库管理（单选/多选/判断）',
+                    '试卷管理（组卷、随机组卷）',
+                    '在线考试（计时、自动交卷）',
+                    '成绩统计与分析',
+                    '错题本功能'
+                ]
+            },
+            '02': {
+                title: '图书管理系统',
+                desc: '经典毕设选题，功能完整，适合入门级前后端分离项目',
+                icon: 'fa-book',
+                gradient: 'from-green-400 to-green-600',
+                free: true,
+                difficulty: '⭐⭐',
+                features: [
+                    '图书分类管理',
+                    '图书信息管理',
+                    '读者管理',
+                    '借阅/还书/续借',
+                    '罚款管理',
+                    '统计报表'
+                ]
+            },
+            '03': {
+                title: '校园二手交易平台',
+                desc: '电商类热门选题，支持商品发布、在线聊天、订单管理',
+                icon: 'fa-shopping-cart',
+                gradient: 'from-orange-400 to-orange-600',
+                free: true,
+                difficulty: '⭐⭐⭐',
+                features: [
+                    '商品发布与管理',
+                    '商品搜索与分类',
+                    '在线聊天（WebSocket）',
+                    '订单管理',
+                    '商品审核',
+                    '收藏功能'
+                ]
+            },
+            '04': {
+                title: '宠物领养管理系统',
+                desc: '公益类特色选题，独特新颖，答辩时容易给老师留下好印象',
+                icon: 'fa-paw',
+                gradient: 'from-pink-400 to-pink-600',
+                free: false,
+                difficulty: '⭐⭐',
+                features: [
+                    '宠物信息展示',
+                    '在线领养申请',
+                    '申请审核管理',
+                    '养宠知识文章',
+                    '用户管理',
+                    '数据统计'
+                ]
+            }
+        };
+
+        // 获取URL参数
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get('id') || '01';
+        const project = projects[projectId] || projects['01'];
+
+        // 渲染页面
+        document.title = project.title + ' - 毕设源码大全';
+        document.getElementById('projectTitle').textContent = project.title;
+        document.getElementById('projectDesc').textContent = project.desc;
+        document.getElementById('projectIcon').className = 'fa ' + project.icon + ' text-7xl text-white opacity-80';
+        document.getElementById('projectBanner').className = 'h-56 bg-gradient-to-br ' + project.gradient + ' flex items-center justify-center';
+        document.getElementById('difficulty').textContent = project.difficulty;
+
+        const freeTag = document.getElementById('freeTag');
+        if (project.free) {
+            freeTag.textContent = '免费源码';
+            freeTag.className = 'bg-green-100 text-green-700 text-sm px-3 py-1 rounded';
+        } else {
+            freeTag.textContent = '加微信获取';
+            freeTag.className = 'bg-red-100 text-red-700 text-sm px-3 py-1 rounded';
+        }
+
+        // 渲染功能列表
+        const featureList = document.getElementById('featureList');
+        featureList.innerHTML = project.features.map(f =>
+            `<div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                <span>${f}</span>
+            </div>`
+        ).join('');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毕设选题大全 - 计算机毕业设计题目推荐 | Vue+SpringBoot</title>
+    <meta name="description" content="计算机毕业设计选题大全，按方向分类，推荐热门毕设题目，基于SpringBoot+Vue技术栈。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold text-blue-600">
+                <i class="fa fa-graduation-cap mr-2"></i>毕设源码大全
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">首页</a>
+                <a href="projects.html" class="text-gray-600 hover:text-blue-600">项目列表</a>
+                <a href="topics.html" class="text-blue-600 font-medium">选题大全</a>
+                <a href="templates.html" class="text-gray-600 hover:text-blue-600">免费模板</a>
+                <a href="about.html" class="text-gray-600 hover:text-blue-600">关于我</a>
+            </div>
+            <button class="md:hidden text-gray-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-2 space-y-2">
+            <a href="index.html" class="block text-gray-600 py-1">首页</a>
+            <a href="projects.html" class="block text-gray-600 py-1">项目列表</a>
+            <a href="topics.html" class="block text-blue-600 font-medium py-1">选题大全</a>
+            <a href="templates.html" class="block text-gray-600 py-1">免费模板</a>
+            <a href="about.html" class="block text-gray-600 py-1">关于我</a>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="bg-white py-10 border-b">
+        <div class="max-w-6xl mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-2">计算机毕设选题大全</h1>
+            <p class="text-gray-600">按方向分类，都是SpringBoot+Vue可实现的热门选题</p>
+        </div>
+    </section>
+
+    <!-- 选题分类 -->
+    <section class="py-12">
+        <div class="max-w-6xl mx-auto px-4 space-y-10">
+
+            <!-- 管理系统类 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fa fa-cogs text-blue-600 mr-3"></i>管理系统类（最热门）
+                </h2>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>图书管理系统</strong>
+                            <p class="text-sm text-gray-600">经典入门选题，功能完整，适合新手</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>学生信息管理系统</strong>
+                            <p class="text-sm text-gray-600">高校毕设最常见的选题之一</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>人事管理系统</strong>
+                            <p class="text-sm text-gray-600">HR方向，包含员工、薪资、考勤模块</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>宿舍管理系统</strong>
+                            <p class="text-sm text-gray-600">校园场景，业务逻辑简单好做</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>仓库管理系统</strong>
+                            <p class="text-sm text-gray-600">进销存方向，适合想做复杂一点的同学</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>快递管理系统</strong>
+                            <p class="text-sm text-gray-600">快递收发、取件码、统计查询</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育考试类 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fa fa-graduation-cap text-green-600 mr-3"></i>教育考试类
+                </h2>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>在线考试系统</strong>
+                            <p class="text-sm text-gray-600">热门选题，题库、组卷、自动判分</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>作业管理系统</strong>
+                            <p class="text-sm text-gray-600">老师布置作业、学生提交、批改</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>课程管理系统</strong>
+                            <p class="text-sm text-gray-600">选课、课程表、成绩管理</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>在线学习平台</strong>
+                            <p class="text-sm text-gray-600">视频课程、学习进度、笔记</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 电商交易类 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fa fa-shopping-cart text-orange-600 mr-3"></i>电商交易类
+                </h2>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>校园二手交易平台</strong>
+                            <p class="text-sm text-gray-600">热门选题，贴近学生生活</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>在线商城系统</strong>
+                            <p class="text-sm text-gray-600">完整电商流程，商品、订单、支付</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>外卖点餐系统</strong>
+                            <p class="text-sm text-gray-600">点餐、购物车、配送、评价</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>宠物领养/销售平台</strong>
+                            <p class="text-sm text-gray-600">特色选题，新颖独特</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 医疗健康类 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fa fa-heartbeat text-red-600 mr-3"></i>医疗健康类
+                </h2>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>医院挂号系统</strong>
+                            <p class="text-sm text-gray-600">科室、医生、排班、挂号、病历</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>在线问诊系统</strong>
+                            <p class="text-sm text-gray-600">图文咨询、医生回复</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>药品管理系统</strong>
+                            <p class="text-sm text-gray-600">药店进销存、药品查询</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>健身房管理系统</strong>
+                            <p class="text-sm text-gray-600">会员、私教、课程、预约</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他特色类 -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fa fa-star text-purple-600 mr-3"></i>其他特色选题
+                </h2>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>电影票务系统</strong>
+                            <p class="text-sm text-gray-600">选座购票、订单管理</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>博客管理系统</strong>
+                            <p class="text-sm text-gray-600">文章发布、评论、分类标签</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>新闻发布系统</strong>
+                            <p class="text-sm text-gray-600">CMS内容管理</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>投票调查系统</strong>
+                            <p class="text-sm text-gray-600">创建投票、统计结果</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>音乐播放系统</strong>
+                            <p class="text-sm text-gray-600">歌单、播放、收藏</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <span class="text-green-600 mr-2"><i class="fa fa-check-circle"></i></span>
+                        <div>
+                            <strong>旅游攻略系统</strong>
+                            <p class="text-sm text-gray-600">景点、攻略、游记分享</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-10 bg-blue-50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-xl font-bold mb-3">不知道选哪个题？</h3>
+            <p class="text-gray-600 mb-6">加微信，免费帮你分析适合的选题，附完整实现方案</p>
+            <a href="about.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+                <i class="fa fa-wechat mr-2"></i>加微信免费咨询
+            </a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm">
+            <p class="mb-2">© 2026 毕设源码大全 | Vue + SpringBoot 毕业设计项目</p>
+        </div>
+    </footer>
+
+</body>
+</html>

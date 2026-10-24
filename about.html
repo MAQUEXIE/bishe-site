@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 毕设源码大全 | 论文辅导/毕设定制服务</title>
+    <meta name="description" content="计算机毕业设计源码分享，提供论文辅导、毕设定制开发服务，一对一答疑。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold text-blue-600">
+                <i class="fa fa-graduation-cap mr-2"></i>毕设源码大全
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-blue-600">首页</a>
+                <a href="projects.html" class="text-gray-600 hover:text-blue-600">项目列表</a>
+                <a href="topics.html" class="text-gray-600 hover:text-blue-600">选题大全</a>
+                <a href="templates.html" class="text-gray-600 hover:text-blue-600">免费模板</a>
+                <a href="about.html" class="text-blue-600 font-medium">关于我</a>
+            </div>
+            <button class="md:hidden text-gray-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-2 space-y-2">
+            <a href="index.html" class="block text-gray-600 py-1">首页</a>
+            <a href="projects.html" class="block text-gray-600 py-1">项目列表</a>
+            <a href="topics.html" class="block text-gray-600 py-1">选题大全</a>
+            <a href="templates.html" class="block text-gray-600 py-1">免费模板</a>
+            <a href="about.html" class="block text-blue-600 font-medium py-1">关于我</a>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="bg-white py-10 border-b">
+        <div class="max-w-6xl mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-2">关于我</h1>
+            <p class="text-gray-600">专注计算机毕业设计，帮你顺利通过答辩</p>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+
+            <!-- 自我介绍 -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                <h2 class="text-xl font-bold mb-4">👋 你好，我是毕设助手</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    我是一名有多年开发经验的Java工程师，专注于计算机毕业设计方向。
+                    已经帮助数百名同学顺利完成毕业设计，从选题到答辩全程指导。
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    我整理了一套基于 <strong>SpringBoot + Vue3</strong> 的毕设项目库，
+                    所有项目都是前后端分离架构，代码规范、文档齐全，适合作为毕业设计使用。
+                </p>
+            </div>
+
+            <!-- 免费服务 -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                <h2 class="text-xl font-bold mb-4">🎁 免费服务</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                        <i class="fa fa-check-circle text-green-600 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-bold">免费选题建议</h3>
+                            <p class="text-sm text-gray-600">不知道选什么题？我帮你分析推荐</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                        <i class="fa fa-check-circle text-green-600 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-bold">免费技术答疑</h3>
+                            <p class="text-sm text-gray-600">源码跑不起来？我帮你排查问题</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                        <i class="fa fa-check-circle text-green-600 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-bold">免费模板下载</h3>
+                            <p class="text-sm text-gray-600">开题报告、论文大纲、答辩PPT</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                        <i class="fa fa-check-circle text-green-600 text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h3 class="font-bold">免费项目源码</h3>
+                            <p class="text-sm text-gray-600">部分项目源码完全免费开放</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 付费服务 -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                <h2 class="text-xl font-bold mb-4">💼 付费服务</h2>
+                <div class="space-y-4">
+                    <div class="p-4 border border-blue-100 rounded-lg">
+                        <h3 class="font-bold text-blue-600 mb-1">📝 论文辅导</h3>
+                        <p class="text-sm text-gray-600">
+                            从开题报告到论文定稿，一对一指导。包括论文结构设计、内容撰写、格式排版、修改润色。
+                        </p>
+                    </div>
+                    <div class="p-4 border border-blue-100 rounded-lg">
+                        <h3 class="font-bold text-blue-600 mb-1">💻 毕设定制开发</h3>
+                        <p class="text-sm text-gray-600">
+                            从选题到答辩全包。根据你的需求定制开发，包含完整源码、数据库脚本、部署文档、论文参考。
+                        </p>
+                    </div>
+                    <div class="p-4 border border-blue-100 rounded-lg">
+                        <h3 class="font-bold text-blue-600 mb-1">🎤 答辩辅导</h3>
+                        <p class="text-sm text-gray-600">
+                            答辩PPT制作指导、模拟答辩、常见问题解答，帮你顺利通过答辩。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 联系方式 -->
+            <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl shadow-md p-8 text-white text-center">
+                <h2 class="text-2xl font-bold mb-4">📮 加微信获取帮助</h2>
+                <p class="text-blue-100 mb-6 text-lg">备注「毕设」，优先通过</p>
+
+                <!-- 微信二维码位置 -->
+                <div class="inline-block bg-white p-4 rounded-lg mb-4">
+                    <div class="w-48 h-48 bg-gray-200 flex items-center justify-center">
+                        <i class="fa fa-qrcode text-6xl text-gray-400"></i>
+                        <p class="text-gray-500 text-sm mt-2">放你的微信二维码</p>
+                    </div>
+                </div>
+
+                <p class="text-blue-100">
+                    <i class="fa fa-wechat mr-2"></i>
+                    微信号：<strong>bishe_helper</strong>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-sm">
+            <p class="mb-2">© 2026 毕设源码大全 | Vue + SpringBoot 毕业设计项目</p>
+        </div>
+    </footer>
+
+</body>
+</html>
