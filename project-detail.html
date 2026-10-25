@@ -25,37 +25,43 @@
     </div>
   </nav>
 
-  <div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- 返回 -->
-    <a href="projects.html" class="text-indigo-600 text-sm hover:underline mb-4 inline-block">← 返回项目列表</a>
-
-    <!-- 项目标题 -->
-    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+  <!-- 项目主题头图 -->
+  <div id="hero" class="text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <a href="projects.html" class="text-white/80 text-sm hover:underline mb-4 inline-block">← 返回项目列表</a>
       <div class="flex items-center gap-3 mb-3">
-        <span id="p-id" class="text-2xl font-bold text-indigo-600"></span>
-        <h1 id="p-name" class="text-2xl font-bold text-gray-800"></h1>
-        <span id="p-category" class="text-sm bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full"></span>
+        <span id="p-id" class="text-2xl font-bold opacity-80"></span>
+        <h1 id="p-name" class="text-3xl font-bold"></h1>
       </div>
-      <p id="p-desc" class="text-gray-600 mb-4"></p>
-      <div class="flex flex-wrap gap-4 text-sm text-gray-500">
-        <span>难度：<span id="p-difficulty" class="text-orange-500"></span></span>
+      <p id="p-category" class="inline-block bg-white/20 px-3 py-1 rounded-full text-sm mb-4"></p>
+      <p id="p-desc" class="text-lg opacity-90 max-w-3xl"></p>
+      <div class="flex flex-wrap gap-4 mt-6 text-sm">
+        <span>难度：<span id="p-difficulty" class="text-yellow-300"></span></span>
         <span>截图数量：<span id="p-count"></span> 张</span>
-        <span>技术栈：<span id="p-tech" class="text-indigo-600"></span></span>
+        <span>技术栈：<span id="p-tech"></span></span>
+        <span>风格：<span id="p-theme-name"></span></span>
       </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- 功能模块（分角色） -->
+    <h2 class="text-xl font-bold mb-4">系统功能模块</h2>
+    <div id="roles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
     </div>
 
     <!-- 截图墙 -->
-    <h2 class="text-xl font-bold mb-4">系统截图</h2>
+    <h2 class="text-xl font-bold mb-4">系统截图（<span id="screenshot-count"></span>张）</h2>
     <div id="screenshot-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
     </div>
 
     <!-- 联系方式 -->
-    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg p-8 text-center">
+    <div id="contact-banner" class="text-white rounded-lg p-8 text-center">
       <h2 class="text-2xl font-bold mb-2">需要这套源码或辅导？</h2>
       <p class="opacity-90 mb-4">含完整源码 + 数据库脚本 + 部署指导 + 论文辅导</p>
       <div class="inline-block bg-white text-gray-800 px-6 py-3 rounded-lg">
         <span class="text-sm text-gray-500">微信号：</span>
-        <span class="text-xl font-bold text-indigo-600">hmma2026</span>
+        <span class="text-xl font-bold" id="contact-wechat">hmma2026</span>
       </div>
     </div>
   </div>
@@ -72,9 +78,13 @@
     const project = PROJECTS.find(p => p.id === id);
 
     if (!project) {
-      document.body.innerHTML = "<div class='text-center py-20'>项目不存在</div>";
+      document.body.innerHTML = "<div class='text-center py-20 text-gray-500'>项目不存在</div>";
     } else {
+      // 设置主题色
       document.title = project.name + " - 毕设源码合集";
+      const hero = document.getElementById("hero");
+      hero.style.background = `linear-gradient(135deg, ${project.theme} 0%, ${project.theme}dd 100%)`;
+
       document.getElementById("p-id").textContent = String(project.id).padStart(2, "0") + ".";
       document.getElementById("p-name").textContent = project.name;
       document.getElementById("p-category").textContent = project.category;
@@ -82,15 +92,31 @@
       document.getElementById("p-difficulty").textContent = getDifficultyStars(project.difficulty);
       document.getElementById("p-count").textContent = project.screenshots;
       document.getElementById("p-tech").textContent = project.tech.join(" / ");
+      document.getElementById("p-theme-name").textContent = project.themeName;
+
+      // 渲染角色功能
+      document.getElementById("roles-grid").innerHTML = project.roles.map((role, idx) => `
+        <div class="bg-white rounded-lg shadow-sm p-5" style="border-top: 4px solid ${project.theme}">
+          <h3 class="font-bold text-lg mb-3" style="color: ${project.theme}">${idx + 1}. ${role.role}</h3>
+          <ul class="text-sm text-gray-600 space-y-2">
+            ${role.items.map(item => `<li class="flex items-start"><span class="mr-2" style="color: ${project.theme}">•</span>${item}</li>`).join("")}
+          </ul>
+        </div>
+      `).join("");
 
       // 渲染截图
       const shots = SCREENSHOTS[project.name] || [];
+      document.getElementById("screenshot-count").textContent = shots.length;
       document.getElementById("screenshot-grid").innerHTML = shots.map(src => `
         <div class="screenshot-item bg-white rounded-lg shadow-sm overflow-hidden">
           <img src="assets/screenshots/${src}" alt="${project.name}" class="w-full" loading="lazy">
           <div class="px-3 py-2 text-xs text-gray-500">${src.split("/").pop().replace(".png", "")}</div>
         </div>
       `).join("");
+
+      // 联系区也用主题色
+      document.getElementById("contact-banner").style.background = `linear-gradient(135deg, ${project.theme} 0%, ${project.theme}cc 100%)`;
+      document.getElementById("contact-wechat").style.color = project.theme;
     }
   </script>
 </body>
