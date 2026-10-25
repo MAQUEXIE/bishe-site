@@ -1,161 +1,91 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30套毕设项目列表 - 毕设源码大全 | Vue+SpringBoot</title>
-    <meta name="description" content="30套完整计算机毕设项目，基于Vue+SpringBoot前后端分离架构，附截图、部署教程、数据库脚本。">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        .project-card { transition: all 0.3s ease; }
-        .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
-        .project-card img { transition: transform 0.3s ease; }
-        .project-card:hover img { transform: scale(1.05); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全部项目 - 毕设源码合集</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50">
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-indigo-600">毕设源码合集</a>
+      <div class="flex gap-6 text-sm">
+        <a href="index.html" class="text-gray-600 hover:text-indigo-600">首页</a>
+        <a href="projects.html" class="text-indigo-600 font-medium">全部项目</a>
+        <a href="topics.html" class="text-gray-600 hover:text-indigo-600">选题大全</a>
+        <a href="templates.html" class="text-gray-600 hover:text-indigo-600">论文模板</a>
+        <a href="about.html" class="text-gray-600 hover:text-indigo-600">关于我</a>
+      </div>
+    </div>
+  </nav>
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-bold text-blue-600">
-                <i class="fa fa-graduation-cap mr-2"></i>毕设源码大全
-            </a>
-            <div class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-gray-600 hover:text-blue-600">首页</a>
-                <a href="projects.html" class="text-blue-600 font-medium">项目列表</a>
-                <a href="topics.html" class="text-gray-600 hover:text-blue-600">选题大全</a>
-                <a href="templates.html" class="text-gray-600 hover:text-blue-600">免费模板</a>
-                <a href="about.html" class="text-gray-600 hover:text-blue-600">关于我</a>
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-2">全部项目</h1>
+    <p class="text-gray-500 mb-6">共 <span id="total-count">30</span> 套 Vue3 + SpringBoot 实战项目</p>
+
+    <!-- 分类筛选 -->
+    <div class="flex flex-wrap gap-2 mb-8" id="filter-buttons">
+    </div>
+
+    <!-- 项目卡片 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="project-grid">
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm mt-12">
+    <p>© 2026 毕设源码合集 · 微信号：hmma2026</p>
+  </footer>
+
+  <script src="assets/js/projects.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    let currentCat = params.get("cat") || "全部";
+
+    const catIcons = { "电商交易": "🛒", "教育学习": "📚", "医疗健康": "🏥", "社区生活": "🏘️", "出行停车": "🚗", "企业管理": "💼" };
+
+    // 渲染筛选按钮
+    document.getElementById("filter-buttons").innerHTML = CATEGORIES.map(cat => `
+      <button onclick="filterCat('${cat}')" class="px-4 py-2 rounded-full text-sm font-medium transition ${cat === currentCat ? "bg-indigo-600 text-white" : "bg-white text-gray-600 hover:bg-indigo-50"}">
+        ${cat === "全部" ? "全部" : catIcons[cat] + " " + cat}
+      </button>
+    `).join("");
+
+    function filterCat(cat) {
+      currentCat = cat;
+      history.replaceState(null, "", cat === "全部" ? "projects.html" : `projects.html?cat=${encodeURIComponent(cat)}`);
+      document.querySelectorAll("#filter-buttons button").forEach((btn, i) => {
+        btn.className = `px-4 py-2 rounded-full text-sm font-medium transition ${CATEGORIES[i] === currentCat ? "bg-indigo-600 text-white" : "bg-white text-gray-600 hover:bg-indigo-50"}`;
+      });
+      renderProjects();
+    }
+
+    function renderProjects() {
+      const list = currentCat === "全部" ? PROJECTS : PROJECTS.filter(p => p.category === currentCat);
+      document.getElementById("total-count").textContent = list.length;
+      document.getElementById("project-grid").innerHTML = list.map(p => `
+        <a href="project-detail.html?id=${p.id}" class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition">
+          <div class="h-44 bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
+            <span class="text-6xl">${catIcons[p.category] || "📦"}</span>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="font-bold text-gray-800">${String(p.id).padStart(2, "0")} · ${p.name}</h3>
             </div>
-            <button class="md:hidden text-gray-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
-                <i class="fa fa-bars text-xl"></i>
-            </button>
-        </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-2 space-y-2">
-            <a href="index.html" class="block text-gray-600 py-1">首页</a>
-            <a href="projects.html" class="block text-blue-600 font-medium py-1">项目列表</a>
-            <a href="topics.html" class="block text-gray-600 py-1">选题大全</a>
-            <a href="templates.html" class="block text-gray-600 py-1">免费模板</a>
-            <a href="about.html" class="block text-gray-600 py-1">关于我</a>
-        </div>
-    </nav>
-
-    <section class="bg-white py-10 border-b">
-        <div class="max-w-6xl mx-auto px-4">
-            <h1 class="text-3xl font-bold mb-2">30套毕设项目大全</h1>
-            <p class="text-gray-600">全部基于 Vue + SpringBoot 前后端分离架构，附完整截图和部署教程</p>
-        </div>
-    </section>
-
-    <section class="py-6 bg-white border-b">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-wrap gap-2">
-                <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm" data-cat="all">全部 (30)</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="ecommerce">电商交易</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="education">教育学习</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="medical">医疗健康</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="community">社区生活</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="transport">出行停车</button>
-                <button class="filter-btn bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm" data-cat="enterprise">企业管理</button>
+            <p class="text-sm text-gray-500 line-clamp-2 mb-3">${p.desc}</p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span>难度 ${getDifficultyStars(p.difficulty)}</span>
+              <span>${p.screenshots} 张截图</span>
             </div>
-        </div>
-    </section>
+          </div>
+        </a>
+      `).join("");
+    }
 
-    <section class="py-12">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectGrid"></div>
-        </div>
-    </section>
-
-    <section class="py-10 bg-blue-50">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <p class="text-lg text-gray-700 mb-4">所有项目都有完整源码、数据库脚本、部署教程</p>
-            <a href="about.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
-                <i class="fa fa-wechat mr-2"></i>加微信获取全部源码
-            </a>
-        </div>
-    </section>
-
-    <footer class="bg-gray-800 text-gray-400 py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center text-sm">
-            <p class="mb-2">© 2026 毕设源码大全 | Vue + SpringBoot 毕业设计项目</p>
-        </div>
-    </footer>
-
-    <script>
-        const projects = [
-            { id: '01', name: '多商户二手交易平台', cat: 'ecommerce', diff: '⭐⭐⭐⭐', desc: '多商户入驻、商品审核、担保交易、在线聊天', img: 'assets/screenshots/多商户二手交易平台/买家/下单担保支付.png' },
-            { id: '02', name: '社区团购系统', cat: 'ecommerce', diff: '⭐⭐⭐', desc: '团长管理、佣金收益、自提配送、秒杀拼团', img: 'assets/screenshots/社区团购系统/团长/佣金收益.png' },
-            { id: '03', name: '生鲜配送商城', cat: 'ecommerce', diff: '⭐⭐⭐⭐', desc: '商品库存管理、冷链配送、多规格商品', img: 'assets/screenshots/生鲜配送商城/商家/商品与库存管理.png' },
-            { id: '10', name: '多门店连锁点餐系统', cat: 'ecommerce', diff: '⭐⭐⭐', desc: '连锁门店管理、总部经营数据汇总、多店统一', img: 'assets/screenshots/多门店连锁点餐系统/总部/经营数据汇总.png' },
-            { id: '11', name: '食堂智慧结算', cat: 'ecommerce', diff: '⭐⭐', desc: '扫码刷卡消费、菜单管理、消费统计', img: 'assets/screenshots/食堂智慧结算/师生/扫码刷卡消费.png' },
-            { id: '04', name: '在线考试系统', cat: 'education', diff: '⭐⭐⭐', desc: '题库管理、智能组卷、在线答题、防切屏、错题本', img: 'assets/screenshots/在线考试系统/学生/倒计时与防切屏.png' },
-            { id: '05', name: '智慧校园选课系统', cat: 'education', diff: '⭐⭐⭐', desc: '课程选课、候补自动递补、课表生成、学分统计', img: 'assets/screenshots/智慧校园选课系统/学生/候补自动递补.png' },
-            { id: '06', name: '职业技能培训平台', cat: 'education', diff: '⭐⭐⭐', desc: '课程学习、作业提交、学员进度、考试认证', img: 'assets/screenshots/职业技能培训平台/学员/作业提交.png' },
-            { id: '18', name: '图书馆智慧管理系统', cat: 'education', diff: '⭐⭐', desc: '图书借阅、读者管理、统计报表、智能检索', img: 'assets/screenshots/图书馆智慧管理系统/管理员/统计报表.png' },
-            { id: '07', name: '智慧医院预约挂号', cat: 'medical', diff: '⭐⭐⭐', desc: '科室管理、医生排班、在线挂号、病历管理', img: 'assets/screenshots/智慧医院预约挂号/医生/排班管理.png' },
-            { id: '08', name: '慢病随访管理', cat: 'medical', diff: '⭐⭐', desc: '慢病管理、随访计划、异常预警、健康档案', img: 'assets/screenshots/慢病随访管理/医生护士/异常预警处理.png' },
-            { id: '09', name: '校园健康体检管理', cat: 'medical', diff: '⭐⭐', desc: '体检套餐、体检报告、异常统计、健康档案', img: 'assets/screenshots/校园健康体检管理/学生/套餐选择.png' },
-            { id: '12', name: '健身房会员管理', cat: 'medical', diff: '⭐⭐⭐', desc: '会员管理、私教课程、体测记录、预约签到', img: 'assets/screenshots/健身房会员管理/会员/体测记录.png' },
-            { id: '13', name: '智慧物业管理系统', cat: 'community', diff: '⭐⭐⭐', desc: '业主报修、物业费缴纳、公告通知、投诉建议', img: 'assets/screenshots/智慧物业管理系统/业主/在线报修.png' },
-            { id: '14', name: '校园失物招领平台', cat: 'community', diff: '⭐⭐', desc: '失物发布、招领认领、消息通知、信用评价', img: 'assets/screenshots/校园失物招领平台/师生/发布寻物失物.png' },
-            { id: '15', name: '社区活动管理平台', cat: 'community', diff: '⭐⭐', desc: '活动发布、报名签到、相册分享、积分管理', img: 'assets/screenshots/社区活动管理平台/居民/上传相册.png' },
-            { id: '20', name: '校园跑腿代取平台', cat: 'community', diff: '⭐⭐⭐', desc: '发布跑腿任务、接单配送、在线支付、评价体系', img: 'assets/screenshots/校园跑腿代取平台/下单用户/发布跑腿任务.png' },
-            { id: '22', name: '校园社团管理系统', cat: 'community', diff: '⭐⭐', desc: '社团招新、活动管理、成员管理、数据统计', img: 'assets/screenshots/校园社团管理系统/团委/数据统计.png' },
-            { id: '23', name: '短视频分享社区', cat: 'community', diff: '⭐⭐⭐', desc: '短视频发布、点赞评论、创作者数据看板、关注粉丝', img: 'assets/screenshots/短视频分享社区/创作者/数据看板.png' },
-            { id: '17', name: '城市共享车位系统', cat: 'transport', diff: '⭐⭐⭐', desc: '车位分享、预约停车、共享收益、导航寻车', img: 'assets/screenshots/城市共享车位系统/管理员/数据统计.png' },
-            { id: '28', name: '校园共享单车系统', cat: 'transport', diff: '⭐⭐⭐', desc: '扫码用车、信用积分、骑行统计、预约还车', img: 'assets/screenshots/校园共享单车系统/学生/信用积分.png' },
-            { id: '29', name: '拼车出行系统', cat: 'transport', diff: '⭐⭐', desc: '发布行程、搜索拼车、在线沟通、费用分摊', img: 'assets/screenshots/拼车出行系统/乘客/搜索行程.png' },
-            { id: '30', name: '智慧停车场系统', cat: 'transport', diff: '⭐⭐', desc: '实时监控、车位引导、自动收费、出入场管理', img: 'assets/screenshots/智慧停车场系统/管理员/实时监控.png' },
-            { id: '16', name: '政务预约办事系统', cat: 'enterprise', diff: '⭐⭐⭐', desc: '事项查询、在线预约、进度查询、评价反馈', img: 'assets/screenshots/政务预约办事系统/市民/事项查询.png' },
-            { id: '19', name: '快递驿站管理系统', cat: 'enterprise', diff: '⭐⭐', desc: '快递代收、取件通知、签收确认、库存统计', img: 'assets/screenshots/快递驿站管理系统/用户/代收确认.png' },
-            { id: '21', name: '供应链采购系统', cat: 'enterprise', diff: '⭐⭐⭐⭐', desc: '供应商管理、采购订单、入库出库、对账结算', img: 'assets/screenshots/供应链采购系统/login.png' },
-            { id: '24', name: '桌游剧本杀预约系统', cat: 'enterprise', diff: '⭐⭐', desc: '场次管理、预约订座、店员管理、消费统计', img: 'assets/screenshots/桌游剧本杀预约系统/店家/场次管理.png' },
-            { id: '25', name: '小微企业进销存系统', cat: 'enterprise', diff: '⭐⭐⭐', desc: '商品管理、采购销售、库存预警、财务报表', img: 'assets/screenshots/小微企业进销存系统/员工/商品管理.png' },
-            { id: '26', name: '企业绩效考核系统', cat: 'enterprise', diff: '⭐⭐⭐', desc: 'KPI设置、员工打分、汇总报表、绩效排名', img: 'assets/screenshots/企业绩效考核系统/HR/汇总报表.png' },
-            { id: '27', name: '固定资产管理系统', cat: 'enterprise', diff: '⭐⭐', desc: '资产登记、借用归还、维修保养、折旧统计', img: 'assets/screenshots/固定资产管理系统/员工/借用申请.png' },
-        ];
-
-        function renderProjects(cat = 'all') {
-            const grid = document.getElementById('projectGrid');
-            const list = cat === 'all' ? projects : projects.filter(p => p.cat === cat);
-            grid.innerHTML = list.map(p => `
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-id="${p.id}">
-                    <div class="h-44 overflow-hidden bg-gray-100">
-                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover" loading="lazy"
-                             onerror="this.parentElement.innerHTML='<div class=\\'h-44 flex items-center justify-center bg-gray-200\\'><i class=\\'fa fa-image text-4xl text-gray-400\\'></i></div>'">
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded font-mono">${p.id}</span>
-                            <span class="text-yellow-500 text-xs">${p.diff}</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">${p.name}</h3>
-                        <p class="text-gray-600 text-sm mb-3">${p.desc}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs text-gray-500">SpringBoot + Vue3</span>
-                            <a href="about.html" class="text-blue-600 text-sm font-medium hover:underline">获取源码 →</a>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        renderProjects();
-
-        const buttons = document.querySelectorAll('.filter-btn');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                buttons.forEach(b => {
-                    b.classList.remove('bg-blue-600', 'text-white');
-                    b.classList.add('bg-gray-100', 'text-gray-700');
-                });
-                btn.classList.remove('bg-gray-100', 'text-gray-700');
-                btn.classList.add('bg-blue-600', 'text-white');
-                renderProjects(btn.dataset.cat);
-            });
-        });
-    </script>
+    renderProjects();
+  </script>
 </body>
 </html>
