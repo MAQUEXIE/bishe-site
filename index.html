@@ -114,8 +114,8 @@
     const hot = PROJECTS.filter(p => p.difficulty >= 4).slice(0, 6);
     document.getElementById("hot-projects").innerHTML = hot.map(p => `
       <a href="project-detail.html?id=${p.id}" class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition">
-        <div class="h-40 bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
-          <span class="text-5xl">${getCategoryIcon(p.category)}</span>
+        <div class="h-40 bg-gray-100 overflow-hidden">
+          <img src="assets/screenshots/${p.cover}" alt="${p.name}" class="w-full h-full object-cover" loading="lazy">
         </div>
         <div class="p-4">
           <div class="flex items-center justify-between mb-2">

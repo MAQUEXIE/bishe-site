@@ -68,8 +68,8 @@
       document.getElementById("total-count").textContent = list.length;
       document.getElementById("project-grid").innerHTML = list.map(p => `
         <a href="project-detail.html?id=${p.id}" class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition">
-          <div class="h-44 bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
-            <span class="text-6xl">${catIcons[p.category] || "📦"}</span>
+          <div class="h-44 bg-gray-100 overflow-hidden">
+            <img src="assets/screenshots/${p.cover}" alt="${p.name}" class="w-full h-full object-cover" loading="lazy">
           </div>
           <div class="p-4">
             <div class="flex items-center justify-between mb-2">
